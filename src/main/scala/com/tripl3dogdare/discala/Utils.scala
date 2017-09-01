@@ -1,9 +1,9 @@
 package com.tripl3dogdare.discala
-import io.circe._, io.circe.parser._
-import io.circe.optics.JsonPath.{root => root_}
-import java.util.{Timer, TimerTask}
 
 object JsonUtils {
+  import io.circe._, io.circe.parser._
+  import io.circe.optics.JsonPath.{root => root_}
+
   def root = root_
   def jsonFrom(raw:String) = new DSJson(parse(raw).getOrElse(Json.Null))
 
@@ -18,6 +18,8 @@ object JsonUtils {
 }
 
 object MiscUtils {
+  import java.util.{Timer, TimerTask}
+
   def scheduleTask(f:() => Unit, at:Long, timer:Timer=new Timer()) = timer.schedule(wrapTimerTask(f), at)
   def wrapTimerTask(f:() => Unit):TimerTask = new TimerTask { def run = f() }
 
