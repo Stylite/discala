@@ -72,16 +72,7 @@ object Gateway {
           },
           "compress": false,
           "large_threshold": 250,
-          "shard": [0, 1],
-          "presence": {
-            "game": {
-              "name": "testing stuffs",
-              "type": 0
-            },
-            "status": "online",
-            "since": null,
-            "afk": false
-          }
+          "shard": [0, 1]
         }
       }
     """
