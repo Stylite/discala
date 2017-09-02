@@ -20,11 +20,18 @@ object JsonUtils {
 object MiscUtils {
   import java.util.{Timer, TimerTask}
 
-  def scheduleTask(f:() => Unit, at:Long, timer:Timer=new Timer()) = timer.schedule(wrapTimerTask(f), at)
-  def wrapTimerTask(f:() => Unit):TimerTask = new TimerTask { def run = f() }
-
   def readFile(path:String) = {
     val source = scala.io.Source.fromFile(path)
     try source.mkString finally source.close
+  }
+
+  implicit class NullOption[A <: AnyRef](a: A) {
+    def |?|[B >: A](b: => B) = if (a ne null) a else b
+  }
+
+  implicit class TimerOps(timer:Timer) {
+    def setTimeout(f:() => Unit, time:Long) = timer.schedule(wrapTimerTask(f), time)
+    def setInterval(f:() => Unit, time:Long) = timer.schedule(wrapTimerTask(f), time, time)
+    def wrapTimerTask(f:() => Unit):TimerTask = new TimerTask { def run = f() }
   }
 }
