@@ -1,4 +1,5 @@
-# Discala
+<h1 style="display: flex; align-items: center;"><img src="discala.png" width="32px" height="32px">Discala</h1>
+
 A Discord API wrapper for Scala.
 
 Discala was created mainly just as a fun project, and in order to replace [discord-akka](https://github.com/eaceaser/discord-akka), which hasn't been updated in 2 years. As well as this, I wanted to move away from huge ecosystem libraries like Play or Akka, so Discala relies mainly on small, one-shot, open-source libraries.
