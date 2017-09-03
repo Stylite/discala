@@ -8,7 +8,8 @@ resolvers += Resolver.bintrayRepo("commercetools", "maven")
 
 libraryDependencies ++= Seq(
   "org.scalaj" %% "scalaj-http" % "2.3.0",
-  "com.neovisionaries" % "nv-websocket-client" % "2.3"
+  "com.neovisionaries" % "nv-websocket-client" % "2.3",
+  "org.scala-lang.modules" %% "scala-async" % "0.9.6"
 )
 
 val circeVersion = "0.8.0"
