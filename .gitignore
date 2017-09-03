@@ -1,6 +1,7 @@
 *.class
 *.log
 .auth
+.notes
 
 # sbt specific
 .cache
