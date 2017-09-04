@@ -4,9 +4,6 @@ import scalaj.http.Http
 import com.neovisionaries.ws.client._
 import io.circe._, io.circe.parser._, io.circe.Decoder, io.circe.generic.auto._
 
-import JsonUtils._
-import MiscUtils._
-
 class Gateway(val token:String, val dispatchHandler:(Symbol, Json) => Unit) {
   private val gateway_res = Http("https://discordapp.com/api/v6/gateway").asString.body
   private val gateway_url = jsonFrom(gateway_res)(root.url.string)+"/?v=6&encoding=json"

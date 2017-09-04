@@ -1,6 +1,5 @@
-package com.tripl3dogdare.discala
-
-object JsonUtils {
+package com.tripl3dogdare
+package object discala {
   import io.circe._, io.circe.parser._
   import io.circe.optics.JsonPath.{root => root_}
 
@@ -11,15 +10,10 @@ object JsonUtils {
   implicit def json2dsj(json:Json):DSJson = new DSJson(json)
 
   class DSJson(val json:Json) {
-    import JsonUtils._
     def get[A](path:monocle.Optional[Json,A]):A = apply(path)
     def apply[A](path:monocle.Optional[Json,A]):A = path.getOption(this.json).getOrElse(null.asInstanceOf[A])
   }
-}
-
-object MiscUtils {
-  import java.util.{Timer, TimerTask}
-
+  
   def readFile(path:String) = {
     val source = scala.io.Source.fromFile(path)
     try source.mkString finally source.close
@@ -29,6 +23,7 @@ object MiscUtils {
     def |?|[B >: A](b: => B) = if (a ne null) a else b
   }
 
+  import java.util.{Timer, TimerTask}
   implicit class TimerOps(timer:Timer) {
     def setTimeout(f:() => Unit, time:Long) = timer.schedule(wrapTimerTask(f), time)
     def setInterval(f:() => Unit, time:Long) = timer.schedule(wrapTimerTask(f), time, time)

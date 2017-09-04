@@ -3,6 +3,6 @@ package testbot
 
 object TestBot {
   def main(args:Array[String]) {
-    val bot = new Discala().login(MiscUtils.readFile(".auth"))
+    val bot = new Discala().login(readFile(".auth"))
   }
 }
