@@ -1,6 +1,6 @@
 package com.tripl3dogdare.discala
 
-import io.circe._, io.circe.parser._, io.circe.Decoder, io.circe.generic.auto._
+import io.circe._
 
 class Discala {
   private var gateway:Gateway = null
