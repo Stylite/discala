@@ -11,8 +11,7 @@ case class User(
   verified:Option[Boolean],
   email:Option[String]
 ) {
-  private val avi_endp = "https://cdn.discordapp.com/"
-  def avatarURL = if(avatar.isEmpty) null else avi_endp+s"avatars/$id/${avatar.get}.png"
-  def defaultAvatarURL = avi_endp+"embed/avatars/$discriminator.png"
+  def avatarURL = if(avatar.isEmpty) null else Discala.AVI_URL+s"avatars/$id/${avatar.get}.${avatar.get.startsWith("a_") ? "gif" : "png"}"
+  def defaultAvatarURL = Discala.AVI_URL+"embed/avatars/$discriminator.png"
   def displayAvatarURL = if(avatar.isEmpty) defaultAvatarURL else avatarURL
 }
