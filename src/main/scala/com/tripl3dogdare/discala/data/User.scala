@@ -1,8 +1,6 @@
 package com.tripl3dogdare.discala
 package data
 
-import io.circe.generic.auto._
-
 case class User(
   id:String,
   username:String,
