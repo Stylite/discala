@@ -10,7 +10,7 @@ class Rest(val token:String) {
   type Query = Map[String, String]
 
   private def send(path:String, method:String, data:String=null, query:Query=Map()) = async {
-    val qs = if(query.size > 0) "?"+query.map { case (k,v) => k+"="+v }.mkString("=") else ""
+    val qs = if(query.size > 0) "?"+query.map { case (k,v) => k+"="+v }.mkString("&") else ""
     val http = Http(Discala.API_URL+path+qs)
       .header("User-Agent", s"DiscordBot (${Discala.WEBSITE}, ${Discala.VERSION})")
       .header("Authorization", s"Bot $token")
