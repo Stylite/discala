@@ -4,9 +4,11 @@ import io.circe._
 
 class Discala {
   private var gateway:Gateway = null
+  private var rest:Rest = null
 
   def login(token:String) = {
     gateway = new Gateway(token, handleDispatch _).login
+    rest = new Rest(token)
     this
   }
 

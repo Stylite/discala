@@ -15,6 +15,7 @@ Discala isn't ready for production use yet. Installation instructions will be ad
 - [scalaj-http](https://github.com/scalaj/scalaj-http) 2.3.0
 - [nv-websocket-client](https://github.com/TakahikoKawasaki/nv-websocket-client) 2.3
 - [circe](https://circe.github.io/circe/) 0.8.0
+- [scala-async](https://github.com/scala/scala-async) 0.9.6
 
 **SBT Plugins**
 
